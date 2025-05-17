@@ -1,0 +1,74 @@
+/* Custom styles for your application */
+body {
+    padding-top: 56px; /* Adjust for fixed navbar */
+}
+
+.card {
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+/* Custom badge colors */
+.badge-outline {
+    background-color: transparent;
+    border: 1px solid currentColor;
+}
+
+/* Custom utilities */
+.min-h-100 {
+    min-height: 100vh;
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(135deg, #0d6efd 0%, #0b5ed7 100%);
+}
+
+/* Features Icons */
+.card .rounded-circle {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* How It Works Numbers */
+.bg-primary {
+    background-color: #0d6efd !important;
+}
+
+/* Testimonials */
+.testimonial-img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .hero .col-lg-6:last-child {
+        margin-top: 2rem;
+    }
+}
+/* Logout button styling */
+.btn-logout {
+    transition: all 0.3s ease;
+}
+
+.btn-logout:hover {
+    transform: translateX(3px);
+}
+
+/* Dropdown logout item */
+.dropdown-item.logout-item {
+    color: #dc3545;
+}
+
+.dropdown-item.logout-item:hover {
+    background-color: #dc3545;
+    color: white;
+}
