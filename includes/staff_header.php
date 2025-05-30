@@ -73,7 +73,7 @@ require_once __DIR__ . '/functions.php';
                         </li>
                           <li class="nav-item mb-2">
                             <a class="nav-link" href="<?php echo APP_URL; ?>/admin/payroll/view.php">
-                                <i class="fa-solid fa-money-bill"></i></i>Payroll
+                                <i class="fa-solid fa-money-bill"></i> Payroll
                             </a>
                         </li>
                     <?php else: ?>
@@ -84,11 +84,6 @@ require_once __DIR__ . '/functions.php';
                         </li>
                       
                     <?php endif; ?>
-                    <li class="nav-item mb-2">
-                        <a class="nav-link" href="<?php echo isAdmin() ? '../../staff/profile.php' : 'profile.php'; ?>">
-                            <i class="fas fa-user-cog me-2"></i>Profile
-                        </a>
-                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="<?php echo APP_URL; ?>/logout.php">
                             <i class="fas fa-sign-out-alt me-2"></i>Logout

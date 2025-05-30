@@ -120,7 +120,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 ");
                 $insert->execute([
                     $member['user_id'],
-                    $month_year . '-01', // Ensure proper date format
+                    $month_year . '-01', 
                     $basic_salary,
                     $overtime_hours,
                     $overtime_pay,
@@ -135,7 +135,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $conn->commit();
         } catch (PDOException $e) {
             $conn->rollBack();
-            $errors[] = "Error processing payroll for {$member['full_name']}: " . $e->getMessage();
+            $errors[] = "Error processing payroll for {$member['full_name']}: Duplicate entry or database error."; ;
         }
     }
     

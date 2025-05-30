@@ -100,11 +100,6 @@ if (!isset($_SESSION['csrf_token'])) {
                                 <i class="fa-solid fa-money-bill"></i> Payroll
                             </a>
                         </li>
-                        <li class="nav-item mb-2">
-                            <a class="nav-link" href="<?php echo APP_URL; ?>/admin/profile.php">
-                                <i class="fas fa-user-shield me-2"></i> Profile
-                            </a>
-                        </li>
                     <?php else: ?>
                         <li class="nav-item mb-2">
                             <a class="nav-link" href="<?php echo APP_URL; ?>/staff/dashboard.php">

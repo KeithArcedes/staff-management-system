@@ -11,14 +11,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['qr_data'])) {
     $qr_data = trim($_POST['qr_data']);
     
     // Verify QR data format (STAFF-{ID}-{RANDOM})
-        if (preg_match('/^(STAFF|USER)-(\d+)-[a-f0-9]+$/', $qr_data, $matches)) {
-            $user_id = $matches[2];
-            
-            // Check if user exists and is active (staff or admin)
-            $stmt = $conn->prepare("SELECT user_id FROM users WHERE user_id = ? AND is_active = 1");
-            $stmt->execute([$user_id]);
-            
-            if ($stmt->fetch()) {
+    if (preg_match('/^(STAFF|USER)-(\d+)-[a-f0-9]+$/', $qr_data, $matches)) {
+        $user_id = $matches[2];
+        
+        // Check if user exists and is active (staff or admin)
+        $stmt = $conn->prepare("SELECT user_id FROM users WHERE user_id = ? AND is_active = 1");
+        $stmt->execute([$user_id]);
+        
+        if ($stmt->fetch()) {
             // Check if already checked in today
             $attendance = $conn->prepare("
                 SELECT * FROM attendance 
@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['qr_data'])) {
                 ORDER BY check_in DESC 
                 LIMIT 1
             ");
-            $attendance->execute([$staff_id]);
+            $attendance->execute([$user_id]);
             $last_attendance = $attendance->fetch(PDO::FETCH_ASSOC);
             
             if ($last_attendance && !$last_attendance['check_out']) {
@@ -39,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['qr_data'])) {
             } else {
                 // Check in
                 $insert = $conn->prepare("INSERT INTO attendance (user_id, check_in) VALUES (?, NOW())");
-                if ($insert->execute([$staff_id])) {
+                if ($insert->execute([$user_id])) {
                     $message = 'Successfully checked in at ' . date('h:i A');
                     $message_type = 'success';
                 }

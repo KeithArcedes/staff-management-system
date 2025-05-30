@@ -59,7 +59,12 @@ $pending_payroll = $conn->query("SELECT COUNT(*) FROM salary WHERE payment_statu
         <div class="col-md-6 mb-4">
             <div class="card h-100">
                 <div class="card-header bg-light py-3">
-                    <h5 class="mb-0">Recent Attendance</h5>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h5 class="mb-0">Recent Attendance</h5>
+                        <a href="attendance/index.php" class="btn btn-primary btn-sm">
+                            <i class="fas fa-calendar me-2"></i>View Full Report
+                        </a>
+                    </div>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -97,7 +102,12 @@ $pending_payroll = $conn->query("SELECT COUNT(*) FROM salary WHERE payment_statu
         <div class="col-md-6 mb-4">
             <div class="card h-100">
                 <div class="card-header bg-light py-3">
+                    <div class="d-flex justify-content-between align-items-center">
                     <h5 class="mb-0">Staff List</h5>
+                     <a href="staff/index.php" class="btn btn-primary btn-sm">
+                        <i class="fas fa-calendar me-2"></i>View All Staff
+                    </a>
+                    </div>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -129,7 +139,6 @@ $pending_payroll = $conn->query("SELECT COUNT(*) FROM salary WHERE payment_statu
                             </tbody>
                         </table>
                     </div>
-                    <a href="staff/index.php" class="btn btn-primary mt-3">View All Staff</a>
                 </div>
             </div>
         </div>

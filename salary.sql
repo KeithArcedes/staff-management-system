@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 17, 2025 at 02:26 PM
+-- Generation Time: May 18, 2025 at 01:17 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.1.25
 
@@ -41,8 +41,12 @@ CREATE TABLE `attendance` (
 --
 
 INSERT INTO `attendance` (`attendance_id`, `user_id`, `check_in`, `check_out`, `status`, `notes`) VALUES
-(1, 9, '2025-05-16 22:39:33', '2025-05-16 22:40:21', 'present', NULL),
-(2, 9, '2025-05-16 23:14:17', '2025-05-17 23:14:38', 'present', NULL);
+(3, 12, '2025-05-17 21:59:30', '2025-05-17 22:00:18', 'present', NULL),
+(4, 12, '2025-05-18 18:29:46', '2025-05-18 23:29:53', 'present', NULL),
+(5, 12, '2025-05-18 18:30:04', '2025-05-18 18:30:48', 'present', NULL),
+(6, 13, '2025-05-18 18:38:10', '2025-05-19 18:38:44', 'present', NULL),
+(7, 1, '2025-05-18 18:43:00', '2025-05-18 18:56:56', 'present', NULL),
+(8, 1, '2025-05-18 18:57:03', '2025-05-18 18:57:08', 'present', NULL);
 
 -- --------------------------------------------------------
 
@@ -93,7 +97,8 @@ CREATE TABLE `salary` (
 --
 
 INSERT INTO `salary` (`salary_id`, `user_id`, `month_year`, `basic_salary`, `overtime_hours`, `overtime_pay`, `allowances`, `deductions`, `tax`, `net_salary`, `payment_status`, `payment_date`, `notes`, `created_at`, `updated_at`) VALUES
-(5, 9, '2025-05-01', 2000.00, 16.00, 5000.00, 0.00, 500.00, 200.00, 6300.00, 'paid', '2025-05-17', NULL, '2025-05-16 16:50:06', '2025-05-16 16:52:17');
+(8, 12, '2025-05-01', 750.00, 0.00, 0.00, 0.00, 250.00, 75.00, 425.00, 'paid', '2025-05-18', NULL, '2025-05-18 10:34:29', '2025-05-18 10:41:56'),
+(10, 13, '2025-05-01', 2000.00, 16.00, 5000.00, 0.00, 500.00, 200.00, 6300.00, 'pending', NULL, NULL, '2025-05-18 10:39:23', '2025-05-18 10:39:23');
 
 -- --------------------------------------------------------
 
@@ -142,8 +147,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `username`, `password`, `email`, `full_name`, `role_id`, `qr_code`, `hourly_rate`, `is_active`, `created_at`, `updated_at`) VALUES
-(1, 'admin', '$2y$10$Yf94/bj.crXKrAfF8NRur.jj3VGDjpDpKLrCO1XnFOUMIzpnpF3x.', 'admin@sample.com', 'System Administrator', 1, NULL, 0.00, 1, '2025-05-16 11:01:08', '2025-05-16 12:13:11'),
-(9, 'ketboy', '$2y$10$BLzR8uqsLTNPlS95SsSc3eLDB9AyEhJK1nvQDQE/2lXJAsAAjlaBi', 'keith.arcedes@csav.edu.ph', 'Keith Arcedes', 2, 'staff_9_1747405642.png', 250.00, 1, '2025-05-16 14:26:22', '2025-05-16 14:27:22');
+(1, 'admin', '$2y$10$Yf94/bj.crXKrAfF8NRur.jj3VGDjpDpKLrCO1XnFOUMIzpnpF3x.', 'admin@sample.com', 'System Administrator', 1, 'staff_1_1747564959.png', 0.00, 1, '2025-05-16 11:01:08', '2025-05-18 10:42:39'),
+(12, 'john', '$2y$10$GEGalttxDn5SEvNbl4xTteyCDOixjBbp7X4EN6n4h5iJ6RBBqUSCC', 'john@gmail.com', 'John Doe', 2, 'staff_12_1747490321.png', 150.00, 1, '2025-05-17 13:57:22', '2025-05-18 11:10:03'),
+(13, 'jane', '$2y$10$bnX7Cdc0R9xILEtnMnULteCpTuERaj3bR7HXUPbYdPNEN2Ewny3tW', 'jane@gmail.com', 'Jane Doe', 2, 'staff_13_1747564661.png', 250.00, 1, '2025-05-18 10:37:28', '2025-05-18 10:37:41');
 
 --
 -- Indexes for dumped tables
@@ -196,7 +202,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `attendance`
 --
 ALTER TABLE `attendance`
-  MODIFY `attendance_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `attendance_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `roles`
@@ -208,7 +214,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT for table `salary`
 --
 ALTER TABLE `salary`
-  MODIFY `salary_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `salary_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `system_settings`
@@ -220,7 +226,7 @@ ALTER TABLE `system_settings`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- Constraints for dumped tables
